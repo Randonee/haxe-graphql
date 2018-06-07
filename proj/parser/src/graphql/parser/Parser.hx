@@ -172,7 +172,7 @@ class Parser extends tink.parse.ParserBase<Pos, Err>
       parseRepeatedly(function():Void {
         var name = parseNameNode();
         if (!name.isSuccess()) err = Failure(name.getParameters()[0]);
-        var if_type:NamedTypeNode = { kind:Kind.NAMED_TYPE, name:name.sure() };
+        var if_type:NamedTypeNode = { kind:Kind.NAME, name:name.sure() };
         interfaces.push(if_type);
       }, {end:'{', sep:'&', allowTrailing:false});
     } else {
@@ -468,7 +468,7 @@ class Parser extends tink.parse.ParserBase<Pos, Err>
 
       var str = parseString();
       if (str!=null) {
-        var v = { value:str.value, block:str.is_block };
+        var v = {kind: Kind.STRING, value:str.value, block:str.is_block};
         return Success(cast v);
       }
 
