@@ -218,7 +218,7 @@ class Parser extends tink.parse.ParserBase<Pos, Err>
         var ntn_start = pos;
         var ntn_out = parseType();
         if (!ntn_out.isSuccess()) return Failure(ntn_out.getParameters()[0]);
-        if (ntn_out.sure().kind!=Kind.NAMED_TYPE) return Failure(makeError('Expecting named type', makePos(ntn_start)));
+        if (ntn_out.sure().kind!=Kind.NAME) return Failure(makeError('Expecting named type', makePos(ntn_start)));
         var id_s = id.sure().toString();
         switch id_s {
           case "query" | "mutation": //  | "subscription": Apparently subscription is experimental / non-spec
