@@ -243,7 +243,7 @@ class Parser extends tink.parse.ParserBase<Pos, Err>
     return try {
       var name:String = ident().sure();
       var loc = { start:start, end:pos, source:_filename, startToken:null, endToken:null };
-      Success({ kind:Kind.NAMED, value:name, loc:loc });
+      Success({ kind:Kind.NAME, value:name, loc:loc });
     } catch (e:Dynamic) {
       Failure(makeError('Name identifier expected', makePos(pos)));  
     }
