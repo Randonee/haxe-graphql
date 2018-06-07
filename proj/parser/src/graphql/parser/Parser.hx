@@ -468,7 +468,7 @@ class Parser extends tink.parse.ParserBase<Pos, Err>
 
       var str = parseString();
       if (str!=null) {
-        var v = {kind: Kind.STRING, value:str.value, block:str.is_block};
+        var v = { kind: Kind.STRING, value:str.value, block:str.is_block };
         return Success(cast v);
       }
 
